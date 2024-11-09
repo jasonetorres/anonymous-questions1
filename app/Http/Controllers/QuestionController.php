@@ -25,19 +25,16 @@ class QuestionController extends Controller
 
     public function submit(Request $request)
     {
-        // Validate the request
+        // Validate the request data
         $request->validate([
             'name' => 'required|string|max:255',
-            'question' => 'required|string|max:255',
+            'question' => 'required|string|max:1000',
         ]);
 
-        // Create a new question entry
-        Question::create([
-            'name' => $request->name,
-            'question' => $request->question,
-        ]);
+        // Process the data (e.g., save to the database)
+        // Example: Question::create($request->all());
 
-        // Return a JSON response
-        return response()->json(['message' => 'Your question has been submitted!']);
+        // Return a response
+        return response()->json(['message' => 'Your question has been submitted successfully!']);
     }
 }
