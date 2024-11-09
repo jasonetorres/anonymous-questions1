@@ -93,7 +93,7 @@
 </head>
 <body>
     <div id="card-container">
-        <h2 class="text-xl font-semibold">Submit Your Question Anonymously</h2>
+        <h2 class="text-xl font-semibold">Submit Your Question</h2>
         <form id="question-form" action="/questions" method="POST">
             @csrf
             <input type="text" name="name" placeholder="Your Name" required>
