@@ -96,8 +96,8 @@
         <h2 class="text-xl font-semibold">Submit Your Question</h2>
         <form id="question-form" action="/questions" method="POST">
             @csrf
-            <input type="text" name="name" placeholder="Your Name" required>
             <textarea id="question-input" name="question" placeholder="Type your question here..." required></textarea>
+            <input type="text" name="name" placeholder="Your Name" required>
             <button type="submit">Submit</button>
         </form>
         <div id="success-message" class="success-message">Your question has been submitted successfully!</div>
@@ -122,6 +122,10 @@
             event.preventDefault(); // Prevent the default form submission
 
             const formData = new FormData(this); // Create a FormData object from the form
+
+            // Log the action URL and CSRF token for debugging
+            console.log('Submitting to:', this.action);
+            console.log('CSRF Token:', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
 
             // Send the form data using Fetch API
             fetch(this.action, {
