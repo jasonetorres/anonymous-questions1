@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>questions</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
@@ -118,6 +119,7 @@
                             }
                             // Display the next question or the previous one
                             displayQuestion(currentQuestionIndex);
+                            alert('Question deleted successfully.'); // User feedback
                         } else {
                             alert('Failed to delete the question. Please try again.');
                         }

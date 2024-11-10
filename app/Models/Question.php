@@ -9,6 +9,5 @@ class Question extends Model
 {
     use HasFactory;
 
-    // Allow mass assignment for these fields
     protected $fillable = ['name', 'question'];
 }

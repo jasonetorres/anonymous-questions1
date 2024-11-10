@@ -31,10 +31,13 @@ class QuestionController extends Controller
             'question' => 'required|string|max:1000',
         ]);
 
-        // Process the data (e.g., save to the database)
-        // Example: Question::create($request->all());
+        // Create a new question entry
+        Question::create([
+            'name' => $request->name,
+            'question' => $request->question,
+        ]);
 
-        // Return a response
+        // Optionally, return a response or redirect
         return response()->json(['message' => 'Your question has been submitted successfully!']);
     }
 }

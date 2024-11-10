@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Your Question</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM6g0g5z5e5e5e5e5e5e5e5e5e5e5e5e5e5e" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             display: flex;
@@ -70,7 +70,6 @@
             display: none; /* Initially hidden */
         }
         footer {
-            margin-top: 20px;
             padding: 10px;
             text-align: center;
             width: 100%;
@@ -79,6 +78,7 @@
             display: flex;
             justify-content: center; /* Center the icons */
             margin-top: 10px;
+            margin-bottom: 10px;
         }
         .social-icons a {
             margin: 0 20px; /* Space between icons */
@@ -107,10 +107,10 @@
 
         <p>come find us</p>
         <div class="social-icons">
-            <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
-            <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
-            <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
-            <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-in"></a>
+            <a href="https://discord.gg/UGpsU4Gn" target="_blank" class="fab fa-discord"></a>
+            <a href="https://x.com/torcdotdev" target="_blank" class="fab fa-twitter"></a>
+            <a href="https://www.linkedin.com/company/76976620" target="_blank" class="fab fa-linkedin-in"></a>
+            <a href="https://github.com/opentorc" target="_blank" class="fab fa-github"></a>
         </div>
         <div class="copyright">
             <p>&copy; 2024 Torc.dev All rights reserved.</p>
