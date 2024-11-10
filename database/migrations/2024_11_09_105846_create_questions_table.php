@@ -20,4 +20,4 @@ class CreateQuestionsTable extends Migration
     {
         Schema::dropIfExists('questions');
     }
-};
+}
