@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Question;
+use Illuminate\Support\Facades\Log;
 
 class QuestionController extends Controller
 {
@@ -26,6 +27,9 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         try {
+            // Log the incoming request data
+            Log::info('Request data:', $request->all());
+
             // Validate the request
             $request->validate([
                 'name' => 'required|string|max:255',
@@ -43,7 +47,7 @@ class QuestionController extends Controller
             return response()->json(['message' => 'Your question has been submitted successfully!'], 200);
         } catch (\Exception $e) {
             // Log the error for debugging
-            \Log::error('Error saving question: ' . $e->getMessage());
+            Log::error('Error saving question: ' . $e->getMessage());
             return response()->json(['message' => 'There was an error submitting your question.'], 500);
         }
     }
