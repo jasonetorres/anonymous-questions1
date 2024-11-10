@@ -23,21 +23,28 @@ class QuestionController extends Controller
         return response()->json(['message' => 'Question deleted successfully.']);
     }
 
-    public function submit(Request $request)
+    public function store(Request $request)
     {
-        // Validate the request data
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'question' => 'required|string|max:1000',
-        ]);
+        try {
+            // Validate the request
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'question' => 'required|string',
+            ]);
 
-        // Create a new question entry
-        Question::create([
-            'name' => $request->name,
-            'question' => $request->question,
-        ]);
+            // Create a new question
+            $question = new Question();
+            $question->name = $request->name;
+            $question->question = $request->question;
 
-        // Optionally, return a response or redirect
-        return response()->json(['message' => 'Your question has been submitted successfully!']);
+            // Save the question to the database
+            $question->save();
+
+            return response()->json(['message' => 'Your question has been submitted successfully!'], 200);
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            \Log::error('Error saving question: ' . $e->getMessage());
+            return response()->json(['message' => 'There was an error submitting your question.'], 500);
+        }
     }
 }
