@@ -114,7 +114,7 @@
             <a href="https://github.com/opentorc" target="_blank" class="fab fa-github"></a>
         </div>
         <div class="copyright">
-            <p>&copy; 2024 Torc.dev All rights reserved.</p>
+            <p>&copy; 2024 <a href="https://torc.dev" target="_blank">Torc.dev</a> All rights reserved. Built with <a href="https://laravel.com" target="_blank">Laravel</a> and <a href="https://sevalla.com" target="_blank">Sevalla</a>.</p>
         </div>
     </footer>
 
