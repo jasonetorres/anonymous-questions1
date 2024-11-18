@@ -10,8 +10,8 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('question');
+            $table->string('question');
+            $table->text('name');
             $table->timestamps();
         });
     }
