@@ -122,7 +122,7 @@
         document.getElementById('question-form').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
 
-            const formData = new FormData(this); // Create a FormData object from the form
+            const formData = new FormData(this); // 'this' refers to the form element
 
             // Log the action URL and CSRF token for debugging
             console.log('Submitting to:', this.action);
@@ -134,6 +134,7 @@
                 body: formData,
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest', // Indicate that this is an AJAX request
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'), // Include CSRF token
                 },
             })
             .then(response => {

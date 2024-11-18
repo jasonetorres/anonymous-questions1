@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Question;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class QuestionController extends Controller
 {
@@ -26,20 +27,20 @@ class QuestionController extends Controller
 
     public function store(Request $request)
     {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'question' => 'required|string|max:255', // Ensure question is required, a string, and max 255 characters
+            'name' => 'required|string|max:100', // Ensure name is required, a string, and max 100 characters
+        ]);
+
         try {
             // Log the incoming request data
             Log::info('Request data:', $request->all());
 
-            // Validate the request
-            $request->validate([
-                'name' => 'required|string|max:255',
-                'question' => 'required|string',
-            ]);
-
             // Create a new question
             $question = new Question();
-            $question->name = $request->name;
-            $question->question = $request->question;
+            $question->name = $validatedData['name'];
+            $question->question = $validatedData['question'];
 
             // Save the question to the database
             $question->save();
